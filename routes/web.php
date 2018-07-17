@@ -10,13 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/students/manage', 'StudentsController@index')->name('students');
-Route::get('/classes/manage'), 'ClassesController@index')->name('classes');
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+
+Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/students', 'StudentsController@index')->name('students');
+
+
+Route::get('/classes', 'ClassesController@index')->name('classes');
+Route::get('/classes/create', 'ClassesController@create')->name('class_create');
+Route::get('/classes/destroy', 'ClassesController@destroy')->name('class_destroy');
+Route::post('classes', 'ClassesController@store');
+
+
+
+Route::get('/journal', 'JournalController@index')->name('journal');

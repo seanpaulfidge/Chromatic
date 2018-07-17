@@ -23,6 +23,6 @@ class JournalController extends Controller
      */
     public function index()
     {
-        return view('journal');
+        return view('journal/entry');
     }
 }

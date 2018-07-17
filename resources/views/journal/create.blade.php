@@ -2,6 +2,6 @@
 
 @section('content')
 
-Journal Review
+Journal Entry
 
 @endsection
