@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+
+use App\Journal;
+use Session;
 
 class JournalController extends Controller
 {
@@ -23,6 +25,13 @@ class JournalController extends Controller
      */
     public function index()
     {
-        return view('journal/entry');
+        $journal = Journal::all();
+        // dd($journal);
+        return view('journal/index', compact('journal'));
+    }
+
+    public function create()
+    {
+        return view('journal/create');
     }
 }

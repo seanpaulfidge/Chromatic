@@ -2,9 +2,9 @@
 
 @section('content')
 
-<h1>Classes</h1>
+<h1>Journal</h1>
 
-<a class="" href="{{ route('class_create') }}">Create</a>
+<a class="" href="{{ route('journal_create') }}">Create</a>
 
 @include('layouts.alerts')
 
@@ -16,19 +16,19 @@
     <th></th>
   </thead>
 
-@foreach($classes as $class)
+@foreach($journal as $entry)
       <tr>
-        <td>{{$class['class_title']}}</td>
-        <td>{{$class['class_num']}}</td>
+        <td>{{$entry['entry_title']}}</td>
+        <td>{{$entry['entry_num']}}</td>
         <td>
-            <form action="{{action('ClassesController@destroy', $class['id'])}}" method="post">
+            <form action="{{action('JournalController@destroy', $entry['id'])}}" method="post">
               @csrf
               <input name="_method" type="hidden" value="EDIT">
               <button class="btn btn-warning" type="submit">Edit</button>
             </form>
           </td>
         <td>
-          <form action="{{action('ClassesController@destroy', $class['id'])}}" method="post">
+          <form action="{{action('JournalController@destroy', $entry['id'])}}" method="post">
             @csrf
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Delete</button>
